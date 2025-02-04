@@ -8,7 +8,7 @@ use ndarray_csv::{Array2Reader, Array2Writer};
 use std::error::Error;
 use std::fs::File;
 fn main() -> Result<(), Box<dyn Error>> {
-    let file = File::open("fma/fma_metadata/fma_metadata/features.csv")?;
+    let file = File::open("fma/fma/fma_metadata/features.csv")?;
     let mut buf_reader = BufReader::new(&file);
 
     let mut header_rows: Vec<Vec<String>> = Vec::new();
@@ -25,8 +25,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         let combined = header_rows
             .iter()
             .map(|row| &row[col])
-            .collect::<Vec<&String>>()
-            .join("_");
+            .collect::<Vec<&String>>();
         combined_headers.push(combined);
     }
 
