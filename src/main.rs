@@ -1,16 +1,15 @@
 extern crate csv;
-extern crate ndarray;
 extern crate ndarray_csv;
 use std::io::{BufReader, BufRead};
 use csv::ReaderBuilder;
 use ndarray::{array, Array1, Array2};
 use std::fs::File;
-use linfa_nn::{distance::*, CommonNearestNeighbour, NearestNeighbour};
+use linfa_nn::{distance::*, CommonNearestNeighbour, NearestNeighbour, NearestNeighbourIndex};
 use linfa_clustering::KMeans;
 use linfa::traits::Fit;
 use linfa::traits::Predict;
 use linfa::DatasetBase;
-use ndarray_npy::write_npy;
+
 
 fn read_features() -> Result<Array2<f64>, std::io::Error> 
 {
@@ -55,9 +54,9 @@ fn read_features() -> Result<Array2<f64>, std::io::Error>
 
 fn knn(data: Array2<f64>, point: Array1<f64>) -> (Array1<f64>, Array2<f64>) 
 {
-    let nn = CommonNearestNeighbour::KdTree.from_batch(&data, L2Dist).unwrap();
-    let nearest = nn.k_nearest(point.view(), 5).unwrap();
-    let range = nn.within_range(point.view(), 100.0).unwrap();
+    let nn: Box<dyn NearestNeighbourIndex<f64> + Send + Sync> = CommonNearestNeighbour::KdTree.from_batch(&data, L2Dist).unwrap();
+    let nearest: ndarray::ArrayBase<ndarray::OwnedRepr<f64>, ndarray::Dim<[usize; 1]>> = nn.k_nearest(point.view(), 5).unwrap();
+    let range: ndarray::ArrayBase<ndarray::OwnedRepr<f64>, ndarray::Dim<[usize; 2]>> = nn.within_range(point.view(), 100.0).unwrap();
 
     (nearest, range)
 }
