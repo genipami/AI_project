@@ -2,6 +2,7 @@ use linfa::DatasetBase;
 use linfa_clustering::KMeans;
 use linfa_nn::distance::LInfDist;
 use ndarray::{Array1, Array2};
+use ndarray_npy::write_npy;
 
 fn kmeans(data: DatasetBase<Array2<f64>, Array1<f64>>, n: usize) -> ()
 {

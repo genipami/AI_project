@@ -1,0 +1,8 @@
+fix knn
+fix kmeans
+add dbscan
+add plotting
+configure main
+implement saving to file
+do tests
+write documentation

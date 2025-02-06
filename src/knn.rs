@@ -2,7 +2,7 @@ use linfa::prelude::*;
 use linfa_nn::{distance::*, CommonNearestNeighbour, NearestNeighbour};
 use ndarray::{Array1, Array2};
 use std::io::Error;
-#[path = "src/read_data.rs"] mod read_data;
+mod read_data;
 
 // fn knn_classification(data: &Array2<f64>, labels: &Array1<usize>, test_data: &Array2<f64>) -> Vec<usize> {
 //     // Create and train the KNN model
@@ -26,9 +26,7 @@ use std::io::Error;
 // }
 
 
-fn knn() -> Result<(), Error> {
-    // Read features from CSV
-    let (_headers, track_nums, features) = read_features()?;
+fn knn(track_nums: Array1<f64>, features: Array2<f64>) -> Result<(), Error> {
 
     // Build a K-D tree using Euclidean distance
     let nn = CommonNearestNeighbour::KdTree

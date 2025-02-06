@@ -2,7 +2,7 @@ extern crate csv;
 extern crate ndarray_csv;
 use std::io::{BufReader, BufRead};
 use csv::ReaderBuilder;
-use ndarray::{array, Array1, Array2, ArrayBase};
+use ndarray::{Array1, Array2};
 use std::fs::File;
 use ndarray::prelude::*;
 fn read_features() -> Result<(Vec<String>, Array1<f64>, Array2<f64>), std::io::Error> 
