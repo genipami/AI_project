@@ -1,4 +1,3 @@
-configure main
 implement saving to file
 do tests
 write documentation

@@ -45,12 +45,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let dbscan = Dbscan::params(best_dbscan.0).tolerance(best_dbscan.1).transform(&features)?;
     let dbscan_clusters: Vec<Option<usize>> = dbscan.labels().iter().map(|l| l.map(|v| v as usize)).collect();
 
-    // Evaluate KMeans
-    println!("\n📌 Evaluating KMeans...");
+    println!("Evaluating KMeans...");
     evaluate_clusters(kmeans_clusters, true_labels.clone(), &features);
 
-    // Evaluate DBSCAN
-    println!("\n📌 Evaluating DBSCAN...");
+    println!("Evaluating DBSCAN...");
     evaluate_clusters(dbscan_clusters, true_labels, &features);
 
     Ok(())

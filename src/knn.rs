@@ -3,27 +3,6 @@ use linfa_nn::{distance::*, CommonNearestNeighbour, NearestNeighbour};
 use ndarray::{Array1, Array2};
 use std::io::Error;
 
-// fn knn_classification(data: &Array2<f64>, labels: &Array1<usize>, test_data: &Array2<f64>) -> Vec<usize> {
-//     // Create and train the KNN model
-//     let model = NearestNeighbour::new(3)  // Using k=3
-//         .fit(data, labels)
-//         .expect("Failed to fit KNN model");
-
-//     // Predict labels for test data
-//     let predictions = model.predict(test_data);
-
-//     predictions.to_vec()
-// }
-
-// fn knn(data: &ArrayBase<DT, Dim<[usize; 2]>>, point: Array1<f64>) -> (ndarray::ArrayBase<ndarray::OwnedRepr<f64>, ndarray::Dim<[usize; 2]>>, ndarray::ArrayBase<ndarray::OwnedRepr<f64>, ndarray::Dim<[usize; 2]>>) 
-// {
-//     let nn: Box<dyn NearestNeighbourIndex<f64> + Send + Sync> = CommonNearestNeighbour::KdTree.from_batch(&data, L2Dist).unwrap();
-//     let nearest: ndarray::ArrayBase<ndarray::OwnedRepr<f64>, ndarray::Dim<[usize; 1]>> = nn.k_nearest(point.view(), 5).unwrap();
-//     let range: ndarray::ArrayBase<ndarray::OwnedRepr<f64>, ndarray::Dim<[usize; 2]>> = nn.within_range(point.view(), 100.0).unwrap();
-
-//     (nearest, range)
-// }
-
 
 fn knn(track_nums: Array1<f64>, features: Array2<f64>) -> Result<(), Error> {
 
