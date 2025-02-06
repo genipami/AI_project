@@ -3,6 +3,19 @@
 version = 3
 
 [[package]]
+name = "AI_project"
+version = "0.1.0"
+dependencies = [
+ "csv",
+ "linfa",
+ "linfa-clustering",
+ "linfa-nn",
+ "linfa-trees",
+ "ndarray 0.16.1",
+ "ndarray-csv",
+]
+
+[[package]]
 name = "approx"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -373,19 +386,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "60946a68e5f9d28b0dc1c21bb8a97ee7d018a8b322fa57838ba31cc878e22d99"
 dependencies = [
  "unicode-ident",
-]
-
-[[package]]
-name = "project"
-version = "0.1.0"
-dependencies = [
- "csv",
- "linfa",
- "linfa-clustering",
- "linfa-nn",
- "linfa-trees",
- "ndarray 0.16.1",
- "ndarray-csv",
 ]
 
 [[package]]
