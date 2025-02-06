@@ -11,16 +11,12 @@ dependencies = [
  "linfa-clustering",
  "linfa-nn",
  "linfa-trees",
- "ndarray 0.16.1",
+ "ndarray 0.15.6",
  "ndarray-csv",
  "ndarray-npy",
+ "ndarray-rand 0.15.0",
+ "rand_xoshiro",
 ]
-
-[[package]]
-name = "adler2"
-version = "2.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "512761e0bb2578dd7380c6baaa0f4ce03e84f95e960231d1dec8bf4d7d6e2627"
 
 [[package]]
 name = "approx"
@@ -29,15 +25,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3f2a05fd1bd10b2527e20a2cd32d8873d115b8b39fe219ee25f42a8aca6ba278"
 dependencies = [
  "num-traits",
-]
-
-[[package]]
-name = "arbitrary"
-version = "1.4.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dde20b3d026af13f561bdd0f15edf01fc734f0dafcedbaf42bba506a9517f223"
-dependencies = [
- "derive_arbitrary",
 ]
 
 [[package]]
@@ -54,12 +41,6 @@ checksum = "3078c7629b62d3f0439517fa394996acacc5cbc91c5a20d8c658e77abd503a71"
 dependencies = [
  "generic-array",
 ]
-
-[[package]]
-name = "bumpalo"
-version = "3.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1628fb46dfa0b37568d12e5edd512553eccf6a22a78e8bde00bb4aed84d5bdbf"
 
 [[package]]
 name = "byteorder"
@@ -80,15 +61,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "59ed5838eebb26a2bb2e58f6d5b5316989ae9d08bab10e0e6d103e656d1b0280"
 dependencies = [
  "libc",
-]
-
-[[package]]
-name = "crc32fast"
-version = "1.4.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a97769d94ddab943e4510d138150169a2758b5ef3eb191a9ee688de3e23ef7b3"
-dependencies = [
- "cfg-if",
 ]
 
 [[package]]
@@ -148,17 +120,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "derive_arbitrary"
-version = "1.4.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "30542c1ad912e0e3d22a1935c290e12e8a29d704a420177a31faad4a601a0800"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "digest"
 version = "0.10.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -169,37 +130,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "displaydoc"
-version = "0.2.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "97369cbbc041bc366949bc74d34658d6cda5621039731c6310521892a3a20ae0"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "either"
 version = "1.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "60b1af1c220855b6ceac025d3f6ecdd2b7c4894bfe9cd9bda4fbb4bc7c0d4cf0"
-
-[[package]]
-name = "equivalent"
-version = "1.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5443807d6dff69373d433ab9ef5378ad8df50ca6298caf15de6e52e24aaf54d5"
-
-[[package]]
-name = "flate2"
-version = "1.0.35"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c936bfdafb507ebbf50b8074c54fa31c5be9a1e7e5f467dd659697041407d07c"
-dependencies = [
- "crc32fast",
- "miniz_oxide",
-]
 
 [[package]]
 name = "generic-array"
@@ -229,29 +163,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8a9ee70c43aaf417c914396645a0fa852624801b24ebb7ae78fe8272889ac888"
 
 [[package]]
-name = "hashbrown"
-version = "0.15.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bf151400ff0baff5465007dd2f3e717f3fe502074ca563069ce3a6629d07b289"
-
-[[package]]
 name = "indexmap"
 version = "1.9.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bd070e393353796e801d209ad339e89596eb4c8d430d18ede6a1cced8fafbd99"
 dependencies = [
  "autocfg",
- "hashbrown 0.12.3",
-]
-
-[[package]]
-name = "indexmap"
-version = "2.7.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8c9c992b02b5b4c94ea26e32fe5bccb7aa7d9f390ab5c1221ff895bc7ea8b652"
-dependencies = [
- "equivalent",
- "hashbrown 0.15.2",
+ "hashbrown",
 ]
 
 [[package]]
@@ -314,7 +232,7 @@ dependencies = [
  "linfa-linalg",
  "linfa-nn",
  "ndarray 0.15.6",
- "ndarray-rand",
+ "ndarray-rand 0.14.0",
  "ndarray-stats",
  "noisy_float",
  "num-traits",
@@ -358,20 +276,8 @@ checksum = "4a6fb1175e686aced100683f9a8149c9bdf3b387fc0d9e01f7cc0a48d5ee2ff8"
 dependencies = [
  "linfa",
  "ndarray 0.15.6",
- "ndarray-rand",
+ "ndarray-rand 0.14.0",
 ]
-
-[[package]]
-name = "lockfree-object-pool"
-version = "0.1.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9374ef4228402d4b7e403e5838cb880d9ee663314b0a900d5a6aabf0c213552e"
-
-[[package]]
-name = "log"
-version = "0.4.25"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "04cbf5b083de1c7e0222a7a51dbfdba1cbe1c6ab0b15e29fff3f6c077fd9cd9f"
 
 [[package]]
 name = "matrixmultiply"
@@ -390,15 +296,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "78ca9ab1a0babb1e7d5695e3530886289c18cf2f87ec19a575a0abdce112e3a3"
 
 [[package]]
-name = "miniz_oxide"
-version = "0.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b8402cab7aefae129c6977bb0ff1b8fd9a04eb5b51efc50a70bea51cda0c7924"
-dependencies = [
- "adler2",
-]
-
-[[package]]
 name = "ndarray"
 version = "0.15.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -411,6 +308,7 @@ dependencies = [
  "num-traits",
  "rawpointer",
  "rayon",
+ "serde",
 ]
 
 [[package]]
@@ -442,16 +340,14 @@ dependencies = [
 
 [[package]]
 name = "ndarray-npy"
-version = "0.9.1"
+version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7b313788c468c49141a9d9b6131fc15f403e6ef4e8446a0b2e18f664ddb278a9"
+checksum = "f85776816e34becd8bd9540818d7dc77bf28307f3b3dcc51cc82403c6931680c"
 dependencies = [
  "byteorder",
- "ndarray 0.16.1",
- "num-complex",
+ "ndarray 0.15.6",
  "num-traits",
  "py_literal",
- "zip",
 ]
 
 [[package]]
@@ -466,12 +362,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "ndarray-rand"
+version = "0.15.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f093b3db6fd194718dcdeea6bd8c829417deae904e3fcc7732dabcd4416d25d8"
+dependencies = [
+ "ndarray 0.16.1",
+ "rand",
+ "rand_distr",
+]
+
+[[package]]
 name = "ndarray-stats"
 version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "af5a8477ac96877b5bd1fd67e0c28736c12943aba24eda92b127e036b0c8f400"
 dependencies = [
- "indexmap 1.9.3",
+ "indexmap",
  "itertools",
  "ndarray 0.15.6",
  "noisy_float",
@@ -752,12 +659,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "simd-adler32"
-version = "0.3.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d66dc143e6b11c1eddc06d5c423cfc97062865baf299914ab64caa38182078fe"
-
-[[package]]
 name = "smallvec"
 version = "1.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -881,35 +782,4 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
-]
-
-[[package]]
-name = "zip"
-version = "2.2.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ae9c1ea7b3a5e1f4b922ff856a129881167511563dc219869afe3787fc0c1a45"
-dependencies = [
- "arbitrary",
- "crc32fast",
- "crossbeam-utils",
- "displaydoc",
- "flate2",
- "indexmap 2.7.1",
- "memchr",
- "thiserror 2.0.11",
- "zopfli",
-]
-
-[[package]]
-name = "zopfli"
-version = "0.8.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e5019f391bac5cf252e93bbcc53d039ffd62c7bfb7c150414d61369afe57e946"
-dependencies = [
- "bumpalo",
- "crc32fast",
- "lockfree-object-pool",
- "log",
- "once_cell",
- "simd-adler32",
 ]

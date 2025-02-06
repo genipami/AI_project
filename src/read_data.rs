@@ -5,7 +5,8 @@ use csv::ReaderBuilder;
 use ndarray::{Array1, Array2};
 use std::fs::File;
 use ndarray::prelude::*;
-fn read_features() -> Result<(Vec<String>, Array1<f64>, Array2<f64>), std::io::Error> 
+use std::collections::HashMap;
+pub fn read_features() -> Result<(Vec<String>, Array1<f64>, Array2<f64>), std::io::Error> 
 {
     let file: File = File::open("fma/fma/fma_metadata/features.csv")?;
     let mut buf_reader: BufReader<&File> = BufReader::new(&file);
@@ -47,4 +48,32 @@ fn read_features() -> Result<(Vec<String>, Array1<f64>, Array2<f64>), std::io::E
     println!("Array shape: {:?}", data.dim());
     
     return Ok((combined_headers, track_nums, features));
+}
+
+
+
+pub fn read_genres() -> Result<HashMap<u32, String>, std::io::Error> {
+    let file = File::open("fma/fma/fma_metadata/tracks.csv")?;
+    let mut reader = ReaderBuilder::new().has_headers(true).from_reader(file);
+
+    let mut genre_map = HashMap::new();
+
+    for result in reader.records() {
+        let record = result?;
+        if let (Some(track_id), Some(genre)) = (record.get(0), record.get(5)) {  // Assuming column 0 = track_id, column 5 = genre
+            if let (Ok(id), genre) = (track_id.parse::<u32>(), genre.to_string()) {
+                genre_map.insert(id, genre);
+            }
+        }
+    }
+
+    Ok(genre_map)
+}
+
+
+pub fn align_genres(
+    track_nums: Array1<f64>, 
+    genre_map: &HashMap<u32, String>
+) -> Vec<Option<String>> {
+    track_nums.iter().map(|&id| genre_map.get(&(id as u32)).cloned()).collect()
 }

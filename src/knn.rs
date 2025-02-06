@@ -2,7 +2,6 @@ use linfa::prelude::*;
 use linfa_nn::{distance::*, CommonNearestNeighbour, NearestNeighbour};
 use ndarray::{Array1, Array2};
 use std::io::Error;
-mod read_data;
 
 // fn knn_classification(data: &Array2<f64>, labels: &Array1<usize>, test_data: &Array2<f64>) -> Vec<usize> {
 //     // Create and train the KNN model
