@@ -60,7 +60,7 @@ pub fn read_genres() -> Result<HashMap<u32, String>, std::io::Error> {
 
     for result in reader.records() {
         let record = result?;
-        if let (Some(track_id), Some(genre)) = (record.get(0), record.get(5)) {  // Assuming column 0 = track_id, column 5 = genre
+        if let (Some(track_id), Some(genre)) = (record.get(0), record.get(37)) {
             if let (Ok(id), genre) = (track_id.parse::<u32>(), genre.to_string()) {
                 genre_map.insert(id, genre);
             }

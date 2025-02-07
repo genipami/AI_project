@@ -4,7 +4,7 @@ use ndarray::{Array1, Array2};
 use std::io::Error;
 
 
-fn knn(track_nums: Array1<f64>, features: Array2<f64>) -> Result<(), Error> {
+pub fn knn(track_nums: Array1<f64>, features: Array2<f64>) -> Result<(), Error> {
 
     // Build a K-D tree using Euclidean distance
     let nn = CommonNearestNeighbour::KdTree

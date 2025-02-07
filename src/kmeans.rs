@@ -9,7 +9,7 @@ use rand_xoshiro::Xoshiro256Plus;
 
 const SEED: u64 = 42;
 
-fn kmeans(data: DatasetBase<Array2<f64>, Array1<f64>>, n: usize) -> ()
+pub fn kmeans(data: DatasetBase<Array2<f64>, Array1<f64>>, n: usize) -> ()
 {
     
     let rng: Xoshiro256Plus = Xoshiro256Plus::seed_from_u64(SEED);

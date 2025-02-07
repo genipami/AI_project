@@ -3,7 +3,7 @@ use linfa_clustering::Dbscan;
 use ndarray::{Array1, Array2};
 use std::error::Error;
 
-fn dbscan(track_nums: Array1<f64>, features:Array2<f64>, min_points: usize, tolerance: f64) -> Result<(), Box<dyn Error>> {
+pub fn dbscan(track_nums: Array1<f64>, features:Array2<f64>, min_points: usize, tolerance: f64) -> Result<(), Box<dyn Error>> {
 
     let clusters = Dbscan::params(min_points)
         .tolerance(tolerance)
