@@ -8,7 +8,8 @@ pub fn dbscan(track_nums: Array1<f64>, features:Array2<f64>, min_points: usize, 
     let clusters = Dbscan::params(min_points)
         .tolerance(tolerance)
         .transform(&features)?;
-
+    println!("Results from dbscan:");
+    println!("{:?}", clusters);
     for (i, cluster) in clusters.iter().enumerate() {
         match cluster {
             Some(cluster_id) => println!("Track {} -> Cluster {}", track_nums[i], cluster_id),

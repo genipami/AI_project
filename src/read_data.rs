@@ -74,6 +74,6 @@ pub fn read_genres() -> Result<HashMap<u32, String>, std::io::Error> {
 pub fn align_genres(
     track_nums: Array1<f64>, 
     genre_map: &HashMap<u32, String>
-) -> Vec<Option<String>> {
-    track_nums.iter().map(|&id| genre_map.get(&(id as u32)).cloned()).collect()
+) -> Vec<String> {
+    track_nums.iter().filter_map(|&id| genre_map.get(&(id as u32)).cloned()).collect()
 }
